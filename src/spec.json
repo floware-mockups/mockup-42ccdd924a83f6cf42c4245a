@@ -384,8 +384,8 @@
     },
     {
       "name": "ResiduiProgetto",
-      "title": "Budget e residui del progetto",
-      "description": "Tre riepiloghi automatici e budget iniziale modificabile.",
+      "title": "Budget, residui e affidamenti conclusi",
+      "description": "Mantiene i riepiloghi del budget e mostra gli affidamenti con evidenziazione automatica delle righe liquidate interamente.",
       "role": "section",
       "pageId": "registro-spese",
       "position": "top"
