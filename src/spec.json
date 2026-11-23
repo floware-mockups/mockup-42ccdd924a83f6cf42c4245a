@@ -77,74 +77,74 @@
       "columns": [
         "Affidamento",
         "Preventivo",
-        "Servizio",
         "Importo impegnato",
         "N. determina impegno",
         "N. e data fattura",
         "Importo liquidato",
-        "Scadenza e determina di liquidazione"
+        "Scadenza pagamento",
+        "N. determina di liquidazione"
       ],
       "rows": [
         [
           "Lumo Allestimenti — Allestimento sale",
           "PREV-24-011 — € 12.000",
-          "Allestimento sale",
           "€ 12.000",
           "DET-24-018",
           "FAT-2024-044 — 16/10/2024",
           "€ 4.000",
-          "15/11/2024 — DET-24-052"
+          "15/11/2024",
+          "DET-24-052"
         ],
         [
           "Vela Trasporti — Trasporto opere",
           "PREV-24-014 — € 9.600",
-          "Trasporto opere",
           "€ 9.600",
           "DET-24-021",
           "FAT-2024-038 — 10/10/2024",
           "€ 0",
-          "09/11/2024 — DET-24-047"
+          "09/11/2024",
+          "DET-24-047"
         ],
         [
           "Nubi Grafica — Stampa materiali",
           "PREV-24-019 — € 7.000",
-          "Stampa materiali",
           "€ 7.000",
           "DET-24-026",
           "FAT-2024-061 — 18/10/2024",
           "€ 3.500",
-          "17/11/2024 — DET-24-059"
+          "17/11/2024",
+          "DET-24-059"
         ],
         [
           "Lumo Allestimenti — Montaggio espositori",
           "PREV-24-023 — € 8.000",
-          "Montaggio espositori",
           "€ 8.000",
           "DET-24-031",
           "FAT-2024-073 — 23/10/2024",
           "€ 4.000",
-          "22/11/2024 — In attesa"
+          "22/11/2024",
+          "In attesa"
         ],
         [
           "Vela Trasporti — Movimentazione materiali",
           "PREV-24-028 — € 12.000",
-          "Movimentazione materiali",
           "€ 12.000",
           "DET-24-035",
           "FAT-2024-079 — 25/10/2024",
           "€ 5.650",
-          "24/11/2024 — In attesa"
+          "24/11/2024",
+          "In attesa"
         ]
       ],
       "form": [
         "Affidamento",
         "Preventivo",
-        "Servizio",
         "Importo impegnato",
         "N. determina impegno",
         "N. e data fattura",
         "Importo liquidato",
-        "Scadenza e determina di liquidazione"
+        "Scadenza pagamento",
+        "N. determina di liquidazione"
       ]
     },
     {
@@ -360,27 +360,35 @@
   },
   "custom": [
     {
-      "name": "DettaglioAffidamento",
-      "title": "Preventivo e movimenti dell’affidamento",
-      "description": "Modifica preventivo, impegno, fattura e liquidazione con termine calcolato a trenta giorni.",
-      "role": "detail",
-      "pageId": "registro-spese"
-    },
-    {
-      "name": "ScadenzaFattura",
-      "title": "Termine automatico di liquidazione",
-      "description": "Mostra il termine aggiornato dalla data fattura insieme al valore registrato.",
-      "role": "cell",
-      "pageId": "registro-spese",
-      "column": "Scadenza e determina di liquidazione"
-    },
-    {
       "name": "ResiduiProgetto",
       "title": "Budget e residui del progetto",
       "description": "Riepilogo automatico degli impegni, delle liquidazioni e dei residui.",
       "role": "section",
       "pageId": "registro-spese",
       "position": "table"
+    },
+    {
+      "name": "DettaglioAffidamento",
+      "title": "Modifica dei dati dell’affidamento",
+      "description": "Modifica i dati mantenendo separate scadenza e determina di liquidazione.",
+      "role": "detail",
+      "pageId": "registro-spese"
+    },
+    {
+      "name": "ScadenzaFattura",
+      "title": "Scadenza pagamento",
+      "description": "Mostra la scadenza salvata e la regola di calcolo.",
+      "role": "cell",
+      "pageId": "registro-spese",
+      "column": "Scadenza pagamento"
+    },
+    {
+      "name": "RendicontazioneProgetto",
+      "title": "Rendicontazione del progetto",
+      "description": "Aggiorna le scadenze e genera un testo con tutte le registrazioni e i totali.",
+      "role": "section",
+      "pageId": "registro-spese",
+      "position": "bottom"
     }
   ]
 }
