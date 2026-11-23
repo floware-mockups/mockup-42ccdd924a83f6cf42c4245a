@@ -75,76 +75,76 @@
       "description": "Un unico progetto espositivo, con una registrazione per ogni servizio affidato a una ditta diversa. Segui impegni, determine, liquidazioni e residui.",
       "metrics": [],
       "columns": [
-        "Progetto",
-        "Ditta",
+        "Affidamento",
+        "Preventivo",
         "Servizio",
         "Importo impegnato",
         "N. determina impegno",
+        "N. e data fattura",
         "Importo liquidato",
-        "Residuo",
-        "Stato"
+        "Scadenza e determina di liquidazione"
       ],
       "rows": [
         [
-          "Progetto espositivo",
-          "Lumo Allestimenti",
+          "Lumo Allestimenti — Allestimento sale",
+          "PREV-24-011 — € 12.000",
           "Allestimento sale",
           "€ 12.000",
           "DET-24-018",
-          "€ 8.000",
+          "FAT-2024-044 — 16/10/2024",
           "€ 4.000",
-          "Da completare"
+          "15/11/2024 — DET-24-052"
         ],
         [
-          "Progetto espositivo",
-          "Vela Trasporti",
+          "Vela Trasporti — Trasporto opere",
+          "PREV-24-014 — € 9.600",
           "Trasporto opere",
           "€ 9.600",
           "DET-24-021",
-          "€ 9.600",
+          "FAT-2024-038 — 10/10/2024",
           "€ 0",
-          "Concluso"
+          "09/11/2024 — DET-24-047"
         ],
         [
-          "Progetto espositivo",
-          "Nubi Grafica",
+          "Nubi Grafica — Stampa materiali",
+          "PREV-24-019 — € 7.000",
           "Stampa materiali",
           "€ 7.000",
           "DET-24-026",
+          "FAT-2024-061 — 18/10/2024",
           "€ 3.500",
-          "€ 3.500",
-          "Da controllare"
+          "17/11/2024 — DET-24-059"
         ],
         [
-          "Progetto espositivo",
-          "Lumo Allestimenti",
+          "Lumo Allestimenti — Montaggio espositori",
+          "PREV-24-023 — € 8.000",
           "Montaggio espositori",
           "€ 8.000",
           "DET-24-031",
+          "FAT-2024-073 — 23/10/2024",
           "€ 4.000",
-          "€ 4.000",
-          "Da completare"
+          "22/11/2024 — In attesa"
         ],
         [
-          "Progetto espositivo",
-          "Vela Trasporti",
+          "Vela Trasporti — Movimentazione materiali",
+          "PREV-24-028 — € 12.000",
           "Movimentazione materiali",
           "€ 12.000",
           "DET-24-035",
-          "€ 6.350",
+          "FAT-2024-079 — 25/10/2024",
           "€ 5.650",
-          "In attesa di fattura"
+          "24/11/2024 — In attesa"
         ]
       ],
       "form": [
-        "Progetto",
-        "Ditta",
+        "Affidamento",
+        "Preventivo",
         "Servizio",
         "Importo impegnato",
         "N. determina impegno",
+        "N. e data fattura",
         "Importo liquidato",
-        "Residuo",
-        "Stato"
+        "Scadenza e determina di liquidazione"
       ]
     },
     {
@@ -362,9 +362,25 @@
     {
       "name": "DettaglioAffidamento",
       "title": "Preventivo e movimenti dell’affidamento",
-      "description": "Preventivo modificabile e movimenti collegati per progetto, ditta e servizio.",
+      "description": "Modifica preventivo, impegno, fattura e liquidazione con termine calcolato a trenta giorni.",
       "role": "detail",
       "pageId": "registro-spese"
+    },
+    {
+      "name": "ScadenzaFattura",
+      "title": "Termine automatico di liquidazione",
+      "description": "Mostra il termine aggiornato dalla data fattura insieme al valore registrato.",
+      "role": "cell",
+      "pageId": "registro-spese",
+      "column": "Scadenza e determina di liquidazione"
+    },
+    {
+      "name": "ResiduiProgetto",
+      "title": "Budget e residui del progetto",
+      "description": "Riepilogo automatico degli impegni, delle liquidazioni e dei residui.",
+      "role": "section",
+      "pageId": "registro-spese",
+      "position": "table"
     }
   ]
 }

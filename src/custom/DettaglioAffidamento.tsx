@@ -3,47 +3,54 @@ import { customTicker, customTimers } from "../customGuard.ts";
 const __mk = customTicker("DettaglioAffidamento");
 const { setTimeout, setInterval, clearTimeout, clearInterval } = customTimers("DettaglioAffidamento");
 import { useState } from "react";
-import { Drawer, Button, Field, TextInput, Card, useTable, usePrototype, type DetailProps } from "../floware";
+import { Drawer, Button, Field, TextInput, useTable, usePrototype, type DetailProps } from "../floware";
+
+function dataIso(testo) {__mk();
+  const p = testo.trim().split("/");
+  return p.length === 3 ? p[2] + "-" + p[1] + "-" + p[0] : "";
+}
+function dataIt(testo) {__mk();
+  const p = testo.split("-");
+  return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : "";
+}
+function termine(testo) {__mk();
+  if (!testo) return "";
+  const d = new Date(testo + "T12:00:00");
+  if (isNaN(d.getTime())) return "";
+  d.setDate(d.getDate() + 30);
+  return d.toLocaleDateString("it-IT");
+}
 
 export default function DettaglioAffidamento({ pageId, rowIndex, close }: DetailProps) {__mk();
   const table = useTable(pageId);
-  const preventivi = useTable("preventivi");
-  const fatture = useTable("fatture-liquidazioni");
-  const { notify, openDetail } = usePrototype();
-  const chiavi = ["Progetto", "Ditta", "Servizio"];
-  const valido = Boolean(table && table.rows[rowIndex] && chiavi.every((nome) => (__mk(), table.column(nome) >= 0 && table.value(rowIndex, nome).trim() !== "")));
-  const trovati = preventivi && valido && chiavi.every((nome) => (__mk(), preventivi.column(nome) >= 0)) ? preventivi.rows.map((riga, indice) => ((__mk(), { riga, indice }))).filter((e) => (__mk(), chiavi.every((nome) => (__mk(), preventivi.value(e.riga, nome) === table.value(rowIndex, nome))))) : [];
-  const indice = trovati.length === 1 ? trovati[0].indice : -1;
-  const [importo, setImporto] = useState(preventivi && indice >= 0 && preventivi.column("Importo preventivo") >= 0 ? preventivi.value(indice, "Importo preventivo") : "");
-  const [riferimento, setRiferimento] = useState(preventivi && indice >= 0 && preventivi.column("Riferimento preventivo") >= 0 ? preventivi.value(indice, "Riferimento preventivo") : "");
+  const { notify } = usePrototype();
+  const leggi = (nome) => (__mk(), table && table.rows[rowIndex] && table.column(nome) >= 0 ? table.value(rowIndex, nome) : "");
+  const fattura = leggi("N. e data fattura").split(" — ");
+  const liquidazione = leggi("Scadenza e determina di liquidazione").split(" — ");
+  const [valori, setValori] = useState(() => (__mk(), [leggi("Preventivo"), leggi("Importo impegnato"), leggi("N. determina impegno"), fattura[0] || "", dataIso(fattura[1] || ""), leggi("Importo liquidato"), liquidazione.length > 1 ? liquidazione.slice(1).join(" — ") : liquidazione[0] || ""]));
+  const campi = ["Preventivo", "Importo impegnato", "N. determina impegno", "Numero fattura", "Data fattura", "Importo liquidato", "N. determina liquidazione"];
+  const colonne = ["Preventivo", "Importo impegnato", "N. determina impegno", "N. e data fattura", "Importo liquidato", "Scadenza e determina di liquidazione"];
   if (!table || !table.rows[rowIndex]) return <Drawer title="Affidamento non disponibile" onClose={close}><Button onClick={close}>Chiudi</Button></Drawer>;
-  const modificabile = valido && preventivi && chiavi.every((nome) => (__mk(), preventivi.column(nome) >= 0)) && preventivi.column("Importo preventivo") >= 0 && preventivi.column("Riferimento preventivo") >= 0 && trovati.length <= 1;
-  const collegabile = valido && fatture && chiavi.every((nome) => (__mk(), fatture.column(nome) >= 0));
-  const collegate = collegabile ? fatture.rows.map((riga, indice) => ((__mk(), { riga, indice }))).filter((e) => (__mk(), chiavi.every((nome) => (__mk(), fatture.value(e.riga, nome) === table.value(rowIndex, nome))))) : [];
+  const completo = colonne.every((nome) => (__mk(), table.column(nome) >= 0));
+  const scadenza = termine(valori[4]);
   function salva() {__mk();
-    if (!modificabile || !preventivi) return;
-    if (indice >= 0) {
-      preventivi.setCell(indice, "Importo preventivo", importo.trim());
-      preventivi.setCell(indice, "Riferimento preventivo", riferimento.trim());
-    } else {
-      preventivi.addRow({ "Progetto": table.value(rowIndex, "Progetto"), "Ditta": table.value(rowIndex, "Ditta"), "Servizio": table.value(rowIndex, "Servizio"), "Importo preventivo": importo.trim(), "Riferimento preventivo": riferimento.trim() });
-    }
-    notify("Preventivo aggiornato in memoria.");
+    if (!completo) return;
+    table.setCell(rowIndex, "Preventivo", valori[0]);
+    table.setCell(rowIndex, "Importo impegnato", valori[1]);
+    table.setCell(rowIndex, "N. determina impegno", valori[2]);
+    table.setCell(rowIndex, "N. e data fattura", valori[3] + " — " + dataIt(valori[4]));
+    table.setCell(rowIndex, "Importo liquidato", valori[5]);
+    table.setCell(rowIndex, "Scadenza e determina di liquidazione", (scadenza || "Da definire") + " — " + valori[6]);
+    notify("Affidamento aggiornato in memoria.");
     close();
   }
-  return <Drawer title="Dettaglio affidamento" onClose={close} footer={<><Button variant="secondary" onClick={close}>Chiudi</Button><Button onClick={salva} disabled={!modificabile}>Salva preventivo</Button></>}>
+  return <Drawer title="Preventivo e movimenti dell’affidamento" onClose={close} footer={<><Button variant="secondary" onClick={close}>Annulla</Button><Button onClick={salva} disabled={!completo}>Salva</Button></>}>
     <div className="space-y-4">
-      <Card title="Affidamento e importi registrati"><div className="grid gap-3 sm:grid-cols-2">{table.columns.map((nome) => (__mk(), <Field key={nome} label={nome}>{table.value(rowIndex, nome) || "—"}</Field>))}</div></Card>
-      <Card title="Preventivo dell’affidamento">
-        <p className="text-sm text-(--mk-muted)">Il preventivo è collegato per progetto, ditta e servizio. Il salvataggio non modifica impegni e liquidazioni.</p>
-        {modificabile ? <div className="space-y-3"><TextInput label="Riferimento preventivo" value={riferimento} onChange={setRiferimento} placeholder="PREV-24-011" /><TextInput label="Importo preventivo" value={importo} onChange={setImporto} placeholder="€ 12.000" /></div> : <p>Controllare le colonne di collegamento o eventuali preventivi duplicati nella pagina Preventivi.</p>}
-      </Card>
-      <Card title="Fatture e liquidazioni collegate">
-        <p className="text-sm text-(--mk-muted)">Solo registrazioni dello stesso progetto, ditta e servizio. Gli importi elencati non sostituiscono il totale liquidato del Registro spese.</p>
-        {!collegabile && <p>Colonne di collegamento non disponibili.</p>}
-        {collegabile && collegate.length === 0 && <p>Nessuna registrazione collegata.</p>}
-        {fatture && collegate.map((e) => (__mk(), <div key={e.indice} className="my-3 space-y-2 rounded border border-(--mk-border) p-3">{["N. fattura", "Importo fattura", "N. determina liquidazione", "Importo liquidato", "Controllo"].filter((nome) => (__mk(), fatture.column(nome) >= 0)).map((nome) => (__mk(), <Field key={nome} label={nome}>{fatture.value(e.riga, nome) || "—"}</Field>))}<Button variant="link" onClick={() => {__mk(); close(); openDetail("fatture-liquidazioni", e.indice); }}>Apri registrazione</Button></div>))}
-      </Card>
+      <Field label="Affidamento">{leggi("Affidamento") || "—"}</Field>
+      {!completo && <p>Alcune colonne richieste non sono disponibili.</p>}
+      {campi.map((nome, indice) => (__mk(), <TextInput key={nome} label={nome} type={indice === 4 ? "date" : "text"} value={valori[indice]} onChange={(testo) => (__mk(), setValori((prima) => (__mk(), prima.map((v, i) => (__mk(), i === indice ? testo : v)))))} />))}
+      <Field label="Scadenza liquidazione: data fattura + 30 giorni">{scadenza || "Indicare la data fattura"}</Field>
+      <p className="text-sm text-(--mk-muted)">Il Registro è la fonte degli importi del riepilogo. Il salvataggio non modifica le altre pagine. Numero e data fattura restano nella stessa colonna della tabella.</p>
     </div>
   </Drawer>;
 }
