@@ -1,0 +1,304 @@
+{
+  "title": "Registro delle spese dei progetti espositivi",
+  "description": "Tieni aggiornati impegni, determine, fatture, liquidazioni e residui. Controlla le scadenze e prepara il riepilogo per la rendicontazione.",
+  "accent": "indigo",
+  "pages": [
+    {
+      "id": "quadro-spese",
+      "title": "Quadro spese",
+      "description": "Una vista d’insieme delle somme impegnate e liquidate, dei residui e dei controlli in arrivo.",
+      "metrics": [
+        {
+          "label": "Impegnato",
+          "value": "€ 48.600"
+        },
+        {
+          "label": "Liquidato",
+          "value": "€ 31.450"
+        },
+        {
+          "label": "Residuo da liquidare",
+          "value": "€ 17.150"
+        },
+        {
+          "label": "Fatture da controllare",
+          "value": "3"
+        },
+        {
+          "label": "Scadenze nei prossimi 30 giorni",
+          "value": "2"
+        }
+      ],
+      "columns": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "Impegnato",
+        "Liquidato",
+        "Residuo",
+        "Stato"
+      ],
+      "rows": [
+        [
+          "Trame di luce",
+          "Lumo Allestimenti",
+          "Allestimento sale",
+          "€ 12.000",
+          "€ 8.000",
+          "€ 4.000",
+          "Da completare"
+        ],
+        [
+          "Mappe d’acqua",
+          "Vela Trasporti",
+          "Trasporto opere",
+          "€ 9.600",
+          "€ 9.600",
+          "€ 0",
+          "Concluso"
+        ],
+        [
+          "Segni di argilla",
+          "Nubi Grafica",
+          "Stampa materiali",
+          "€ 7.000",
+          "€ 3.500",
+          "€ 3.500",
+          "Da controllare"
+        ]
+      ],
+      "form": []
+    },
+    {
+      "id": "registro-spese",
+      "title": "Registro spese",
+      "description": "Cerca e filtra le spese per progetto, ditta o numero di atto. Confronta gli importi registrati e individua subito i residui da verificare.",
+      "metrics": [],
+      "columns": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "Importo impegnato",
+        "N. determina impegno",
+        "Importo liquidato",
+        "Residuo",
+        "Stato"
+      ],
+      "rows": [
+        [
+          "Trame di luce",
+          "Lumo Allestimenti",
+          "Allestimento sale",
+          "€ 12.000",
+          "DET-24-018",
+          "€ 8.000",
+          "€ 4.000",
+          "Da completare"
+        ],
+        [
+          "Mappe d’acqua",
+          "Vela Trasporti",
+          "Trasporto opere",
+          "€ 9.600",
+          "DET-24-021",
+          "€ 9.600",
+          "€ 0",
+          "Concluso"
+        ],
+        [
+          "Segni di argilla",
+          "Nubi Grafica",
+          "Stampa materiali",
+          "€ 7.000",
+          "DET-24-026",
+          "€ 3.500",
+          "€ 3.500",
+          "Da controllare"
+        ],
+        [
+          "Voci di carta",
+          "Lumo Allestimenti",
+          "Montaggio espositori",
+          "€ 8.000",
+          "DET-24-031",
+          "€ 4.000",
+          "€ 4.000",
+          "Da completare"
+        ],
+        [
+          "Orti di memoria",
+          "Vela Trasporti",
+          "Movimentazione materiali",
+          "€ 12.000",
+          "DET-24-035",
+          "€ 6.350",
+          "€ 5.650",
+          "In attesa di fattura"
+        ]
+      ],
+      "form": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "Importo impegnato",
+        "N. determina impegno",
+        "Importo liquidato",
+        "Residuo",
+        "Stato"
+      ]
+    },
+    {
+      "id": "fatture-liquidazioni",
+      "title": "Fatture e liquidazioni",
+      "description": "Registra le fatture e le determine di liquidazione. Controlla che gli importi liquidati non superino l’impegno e che i residui tornino.",
+      "metrics": [
+        {
+          "label": "Fatture da verificare",
+          "value": "3"
+        },
+        {
+          "label": "Liquidazioni in attesa",
+          "value": "2"
+        }
+      ],
+      "columns": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "N. fattura",
+        "Importo fattura",
+        "N. determina liquidazione",
+        "Importo liquidato",
+        "Controllo"
+      ],
+      "rows": [
+        [
+          "Trame di luce",
+          "Lumo Allestimenti",
+          "Allestimento sale",
+          "FAT-2024-044",
+          "€ 4.000",
+          "DET-24-052",
+          "€ 4.000",
+          "Da verificare"
+        ],
+        [
+          "Mappe d’acqua",
+          "Vela Trasporti",
+          "Trasporto opere",
+          "FAT-2024-038",
+          "€ 3.200",
+          "DET-24-047",
+          "€ 3.200",
+          "Verificato"
+        ],
+        [
+          "Segni di argilla",
+          "Nubi Grafica",
+          "Stampa materiali",
+          "FAT-2024-061",
+          "€ 3.500",
+          "DET-24-059",
+          "€ 3.500",
+          "Verificato"
+        ],
+        [
+          "Voci di carta",
+          "Lumo Allestimenti",
+          "Montaggio espositori",
+          "FAT-2024-073",
+          "€ 4.000",
+          "—",
+          "€ 0",
+          "In attesa"
+        ],
+        [
+          "Orti di memoria",
+          "Vela Trasporti",
+          "Movimentazione materiali",
+          "FAT-2024-079",
+          "€ 2.100",
+          "—",
+          "€ 0",
+          "In attesa"
+        ]
+      ],
+      "form": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "N. fattura",
+        "Importo fattura",
+        "N. determina liquidazione",
+        "Importo liquidato",
+        "Controllo"
+      ]
+    },
+    {
+      "id": "scadenze-controlli",
+      "title": "Scadenze e controlli",
+      "description": "Segui le verifiche da fare e le prossime scadenze. I controlli aiutano a trovare differenze tra impegni, fatture, liquidazioni e residui.",
+      "metrics": [
+        {
+          "label": "Controlli aperti",
+          "value": "3"
+        },
+        {
+          "label": "Scadenze in arrivo",
+          "value": "2"
+        },
+        {
+          "label": "Differenze da verificare",
+          "value": "1"
+        }
+      ],
+      "columns": [
+        "Progetto",
+        "Ditta",
+        "Controllo da fare",
+        "Scadenza",
+        "Importo",
+        "Stato"
+      ],
+      "rows": [
+        [
+          "Trame di luce",
+          "Lumo Allestimenti",
+          "Verificare fattura e residuo",
+          "15/11/2024",
+          "€ 4.000",
+          "Da fare"
+        ],
+        [
+          "Segni di argilla",
+          "Nubi Grafica",
+          "Confermare importo liquidato",
+          "18/11/2024",
+          "€ 3.500",
+          "Da fare"
+        ],
+        [
+          "Voci di carta",
+          "Lumo Allestimenti",
+          "Registrare determina di liquidazione",
+          "22/11/2024",
+          "€ 4.000",
+          "In attesa"
+        ],
+        [
+          "Orti di memoria",
+          "Vela Trasporti",
+          "Confrontare fattura e impegno",
+          "25/11/2024",
+          "€ 450",
+          "Differenza da verificare"
+        ]
+      ],
+      "form": []
+    }
+  ],
+  "theme": {
+    "palette": "prugna",
+    "fonts": "editoriale"
+  }
+}
