@@ -360,14 +360,6 @@
   },
   "custom": [
     {
-      "name": "ResiduiProgetto",
-      "title": "Budget e residui del progetto",
-      "description": "Riepilogo automatico degli impegni, delle liquidazioni e dei residui.",
-      "role": "section",
-      "pageId": "registro-spese",
-      "position": "table"
-    },
-    {
       "name": "DettaglioAffidamento",
       "title": "Modifica dei dati dell’affidamento",
       "description": "Modifica i dati mantenendo separate scadenza e determina di liquidazione.",
@@ -389,6 +381,14 @@
       "role": "section",
       "pageId": "registro-spese",
       "position": "bottom"
+    },
+    {
+      "name": "ResiduiProgetto",
+      "title": "Budget e residui del progetto",
+      "description": "Tre riepiloghi automatici e budget iniziale modificabile.",
+      "role": "section",
+      "pageId": "registro-spese",
+      "position": "top"
     }
   ]
 }
