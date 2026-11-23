@@ -40,7 +40,7 @@
       ],
       "rows": [
         [
-          "Trame di luce",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Allestimento sale",
           "€ 12.000",
@@ -49,7 +49,7 @@
           "Da completare"
         ],
         [
-          "Mappe d’acqua",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Trasporto opere",
           "€ 9.600",
@@ -58,7 +58,7 @@
           "Concluso"
         ],
         [
-          "Segni di argilla",
+          "Progetto espositivo",
           "Nubi Grafica",
           "Stampa materiali",
           "€ 7.000",
@@ -72,7 +72,7 @@
     {
       "id": "registro-spese",
       "title": "Registro spese",
-      "description": "Cerca e filtra le spese per progetto, ditta o numero di atto. Confronta gli importi registrati e individua subito i residui da verificare.",
+      "description": "Un unico progetto espositivo, con una registrazione per ogni servizio affidato a una ditta diversa. Segui impegni, determine, liquidazioni e residui.",
       "metrics": [],
       "columns": [
         "Progetto",
@@ -86,7 +86,7 @@
       ],
       "rows": [
         [
-          "Trame di luce",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Allestimento sale",
           "€ 12.000",
@@ -96,7 +96,7 @@
           "Da completare"
         ],
         [
-          "Mappe d’acqua",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Trasporto opere",
           "€ 9.600",
@@ -106,7 +106,7 @@
           "Concluso"
         ],
         [
-          "Segni di argilla",
+          "Progetto espositivo",
           "Nubi Grafica",
           "Stampa materiali",
           "€ 7.000",
@@ -116,7 +116,7 @@
           "Da controllare"
         ],
         [
-          "Voci di carta",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Montaggio espositori",
           "€ 8.000",
@@ -126,7 +126,7 @@
           "Da completare"
         ],
         [
-          "Orti di memoria",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Movimentazione materiali",
           "€ 12.000",
@@ -150,7 +150,7 @@
     {
       "id": "fatture-liquidazioni",
       "title": "Fatture e liquidazioni",
-      "description": "Registra le fatture e le determine di liquidazione. Controlla che gli importi liquidati non superino l’impegno e che i residui tornino.",
+      "description": "Registra le fatture e le liquidazioni dei diversi servizi affidati per il progetto espositivo unico, mantenendo distinto il lavoro di ciascuna ditta.",
       "metrics": [
         {
           "label": "Fatture da verificare",
@@ -173,7 +173,7 @@
       ],
       "rows": [
         [
-          "Trame di luce",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Allestimento sale",
           "FAT-2024-044",
@@ -183,7 +183,7 @@
           "Da verificare"
         ],
         [
-          "Mappe d’acqua",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Trasporto opere",
           "FAT-2024-038",
@@ -193,7 +193,7 @@
           "Verificato"
         ],
         [
-          "Segni di argilla",
+          "Progetto espositivo",
           "Nubi Grafica",
           "Stampa materiali",
           "FAT-2024-061",
@@ -203,7 +203,7 @@
           "Verificato"
         ],
         [
-          "Voci di carta",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Montaggio espositori",
           "FAT-2024-073",
@@ -213,7 +213,7 @@
           "In attesa"
         ],
         [
-          "Orti di memoria",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Movimentazione materiali",
           "FAT-2024-079",
@@ -262,7 +262,7 @@
       ],
       "rows": [
         [
-          "Trame di luce",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Verificare fattura e residuo",
           "15/11/2024",
@@ -270,7 +270,7 @@
           "Da fare"
         ],
         [
-          "Segni di argilla",
+          "Progetto espositivo",
           "Nubi Grafica",
           "Confermare importo liquidato",
           "18/11/2024",
@@ -278,7 +278,7 @@
           "Da fare"
         ],
         [
-          "Voci di carta",
+          "Progetto espositivo",
           "Lumo Allestimenti",
           "Registrare determina di liquidazione",
           "22/11/2024",
@@ -286,7 +286,7 @@
           "In attesa"
         ],
         [
-          "Orti di memoria",
+          "Progetto espositivo",
           "Vela Trasporti",
           "Confrontare fattura e impegno",
           "25/11/2024",
@@ -295,10 +295,76 @@
         ]
       ],
       "form": []
+    },
+    {
+      "id": "preventivi",
+      "title": "Preventivi",
+      "description": "Preventivi dimostrativi collegati agli affidamenti per progetto, ditta e servizio.",
+      "metrics": [],
+      "columns": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "Riferimento preventivo",
+        "Importo preventivo"
+      ],
+      "rows": [
+        [
+          "Progetto espositivo",
+          "Lumo Allestimenti",
+          "Allestimento sale",
+          "PREV-24-011",
+          "€ 12.000"
+        ],
+        [
+          "Progetto espositivo",
+          "Vela Trasporti",
+          "Trasporto opere",
+          "PREV-24-014",
+          "€ 9.600"
+        ],
+        [
+          "Progetto espositivo",
+          "Nubi Grafica",
+          "Stampa materiali",
+          "PREV-24-019",
+          "€ 7.000"
+        ],
+        [
+          "Progetto espositivo",
+          "Lumo Allestimenti",
+          "Montaggio espositori",
+          "PREV-24-023",
+          "€ 8.000"
+        ],
+        [
+          "Progetto espositivo",
+          "Vela Trasporti",
+          "Movimentazione materiali",
+          "PREV-24-028",
+          "€ 12.000"
+        ]
+      ],
+      "form": [
+        "Progetto",
+        "Ditta",
+        "Servizio",
+        "Riferimento preventivo",
+        "Importo preventivo"
+      ]
     }
   ],
   "theme": {
     "palette": "prugna",
     "fonts": "editoriale"
-  }
+  },
+  "custom": [
+    {
+      "name": "DettaglioAffidamento",
+      "title": "Preventivo e movimenti dell’affidamento",
+      "description": "Preventivo modificabile e movimenti collegati per progetto, ditta e servizio.",
+      "role": "detail",
+      "pageId": "registro-spese"
+    }
+  ]
 }
